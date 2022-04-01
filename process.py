@@ -11,3 +11,11 @@ def sales_reports(log_file):
 
  # Calls the function
 sales_reports(log_file)
+
+# Write another function that prints out all the melon orders that delivered over 10 melons.
+def sales_reports_2(log_file):
+    for line in log_file:
+        line = line.rstrip()
+        if line.endswith("10 melons"):
+            print(line)
+            
