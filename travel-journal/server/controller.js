@@ -8,7 +8,14 @@ const { CONNECTION_STRING } = process.env
 const Sequelize = require("sequelize")
 
 // Initialize a new Sequelize instance, passing in your connection string and the obj in instr.
-const sequelize = new Sequelize()
+const sequelize = new Sequelize(CONNECTION_STRING, {
+  dialect: 'postgres',
+  dialectOptions: {
+      ssl: {
+          rejectUnauthorized: false
+      }
+  }
+})
 
 module.exports = {
   seed: (req, res) => {
